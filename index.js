@@ -24,6 +24,30 @@ app.use('/info', info);
 app.use('/performance', performance);
 app.use('/', express.static('./pages/root'));
 
-app.listen(port, () => {
+let io = require('socket.io')(server);
+
+let audienceSocket = io.of('/audience');
+audienceSocket.on('connection', (socket) => {
+    console.log('new audience @ ' + socket.id);
+});
+
+let performerSocket = io.of('/performer');
+performerSocket.on('connection', (socket) => {
+    console.log('new performer @ ' + socket.id);
+    socket.on('sendData', (data) => {
+        console.log(data);
+        data.socketID = socket.id;
+        audienceSocket.emit('getData', data);
+    });
+    socket.on('disconnect', () => {
+        audienceSocket.emit("performerDisconnect", socket.id);
+    });
+});
+
+io.sockets.on('connection', (socket) => {
+    console.log("new socket connection @ " + socket.id);
+});
+
+server.listen(port, () => {
     console.log('App listening at http://localhost:3000');
 });
