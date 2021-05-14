@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
             .then(response => response.json())
             .then(response => {
                 if(response.task=="success"){
-                    window.location.href = "http://localhost:3000/performance/performer/" + username;
+                    window.location.href = "https://ist-webpage/performance/performer/" + username;
                 }
             })
            
