@@ -29,7 +29,7 @@ let logo;
 let colors;
   
 function preload() {
-    logo = loadImage("assets/IST_logo.jpeg");
+    logo = loadImage("assets/IST_logo.jpg");
     audioFont = loadFont("assets/Audiowide-Regular.ttf");
 }
   
