@@ -10,7 +10,7 @@ audienceSocket.on('activePerformers', (data) => {
         newPerformer.setupInstrument();
         activePerformers.push(newPerformer);
     }
-    console.log(activePerformers);
+    // console.log(activePerformers);
 });
 
 //Get new performer connection
@@ -19,7 +19,7 @@ audienceSocket.on('getPresence', (data) => {
     ready = false;
     newPerformer.setupInstrument();
     activePerformers.push(newPerformer);
-    console.log(activePerformers);
+    // console.log(activePerformers);
 });
 
 //Get data from active performers

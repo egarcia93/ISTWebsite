@@ -29,8 +29,6 @@ class Performer {
             this.waveform = new Tone.Waveform().connect(this.distortion);
             let synthType = "new Tone." + this.synthSetting + ".connect(this.waveform)";
             this.instrument = eval(synthType);
-            console.log(this.instrument);
-            console.log(this.chorus);
 
             // //LOOP THROUGH data.controls TO GET PARTS OF SYNTH TO CONTROL
             for (i = 0; i < this.controls.length; i++) {
@@ -68,11 +66,9 @@ class Performer {
                     this.instrument.release = this.controls[i].release;
                 }
                 if (this.controls[i].name === "chorus") {
-                    console.log(this.chorus.delayTime);
                     this.chorus.frequency.value = this.controls[i].frequency;
                     this.chorus.delayTime = this.controls[i].delayTime;
                     this.chorus.depth = this.controls[i].depth;
-                    console.log(this.chorus);
                 }
                 if (this.controls[i].name === "distortion") {
                     //ADD this.controls[i].target and set initial value
@@ -86,13 +82,11 @@ class Performer {
     checkData(data) {
         //IDENTIFY WHAT IS GOING TO BE CONTROLLED
         for (i = 0; i < this.controls.length; i++) {
-            if (data.hasOwnProperty(this.controls[i].name)) {
-                console.log(this.controls[i].target, data);
-                
+            if (data.hasOwnProperty(this.controls[i].name)) {                
                 //MATCH DATA CHANGE WITH WHAT IS BEING CONTROLLED
-                console.log(this.controls[i].target + " = " + data[this.controls[i].name])
+                // console.log(this.controls[i].target + " = " + data[this.controls[i].name]);
                 eval(this.controls[i].target + " = " + data[this.controls[i].name]);
-                console.log(eval(this.controls[i].target));
+                // console.log(eval(this.controls[i].target));
                 if (this.controls[i].name === "pitch") {
                     this.playSound();
                 }
@@ -101,7 +95,7 @@ class Performer {
     }
 
     playSound() {
-        console.log(this.instrument);
+        // console.log(this.instrument);
         this.instrument.triggerAttackRelease(this.note, this.duration);
     }
 }
