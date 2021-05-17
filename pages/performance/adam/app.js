@@ -130,6 +130,7 @@ function keyPressed() {
       note.push(note1);
       note.push(note2);
       note.push(note3);
+      console.log(note);
       note = '"' + note + '"';
     //   note = [
     //     mapNote(noteNumber, scale),
