@@ -13,7 +13,7 @@ function sendPresence() {
     let data = {
         "name" : userName,
         "synth" : true,
-        "synthSetting" : "Sampler({urls: {A1: 'A1.wav'},baseUrl: 'http://localhost:3000/performance/audience/',onload: () => {console.log('loaded');}})",
+        "synthSetting" : "Sampler({urls: {A1: 'A1.wav'},baseUrl: 'https://ist-webpage.herokuapp.com/performance/audience/',onload: () => {console.log('loaded');}})",
         "controls" : [
             {
                 "name" : "pitch"
