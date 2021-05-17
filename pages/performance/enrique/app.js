@@ -13,7 +13,7 @@ function sendPresence() {
     let data = {
         "name" : userName,
         "synth" : true,
-        "synthSetting" : "Sampler({urls: {A1: 'A1.wav'},baseUrl: 'http://localhost:3000/pages/performance/audience/',onload: () => {console.log('loaded');}})",
+        "synthSetting" : "Sampler({urls: {A1: 'A1.wav'},baseUrl: 'http://localhost:3000/performance/audience/',onload: () => {console.log('loaded');}})",
         "controls" : [
             {
                 "name" : "pitch"
@@ -77,7 +77,7 @@ window.addEventListener('load', () => {
          inputSoftware = WebMidi.inputs[0];
          inputSoftware.addListener('noteon', "all", function(e) {
            console.log(e.note);
-           let note = e.note.name+e.note.octave;
+           let note = "'" + e.note.name+e.note.octave + "'";
            let value = {
                "pitch" : note
            }
