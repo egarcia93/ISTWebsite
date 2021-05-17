@@ -77,7 +77,7 @@ window.addEventListener('load', () => {
          inputSoftware = WebMidi.inputs[0];
          inputSoftware.addListener('noteon', "all", function(e) {
            console.log(e.note);
-           let note = e.note.name+e.note.octave;
+           let note = "'" + e.note.name+e.note.octave + "'";
            let value = {
                "pitch" : note
            }

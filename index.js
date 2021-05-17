@@ -25,6 +25,7 @@ app.use('/performance', performance);
 app.use('/', express.static('./pages/root'));
 let io = require('socket.io')(server);
 
+
 // app.get('/pages/performance/audience/:soundFile', (req, res) => {
 //     let fileName = req.params.soundFile;
 //     console.log(fileName);

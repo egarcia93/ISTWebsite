@@ -13,12 +13,11 @@ class Performer {
         this.feedbackDelay;
         this.meter;
         this.waveform;
+        this.buffer;
     }
 
     //GO THROUGH SETTINGS, CREATE INSTRUMENT, AND IDENTIFY WHAT ASPECTS OF THE INSTRUMENT WILL BE CONTROLLED
     setupInstrument() {
-        //INDENTIFY SYNTH VS. SAMPLE
-        if (this.synth) {
             // //CREATE SYNTH FROM data.synthSetting
             this.meter = new Tone.Meter().toDestination();
             this.volume = new Tone.Volume(0).connect(this.meter);
@@ -70,7 +69,6 @@ class Performer {
                     this.distortion.distortion = this.controls[i].startVal;
                 }
             }
-        } 
         ready = true;
     }
 

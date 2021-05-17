@@ -10,12 +10,13 @@ let userName;
 //Send Performer Settings to Audience on Initial Connection
 function sendPresence() {
     let splitURL = window.location.href.split('performer/');
-    let processedURL = "'" + splitURL[0] + "audience/'";
+    let processedURL = "'" + splitURL[0] + "assets/C4.wav'";
+    console.log(processedURL);
     console.log("sending connection to audience");
     let data = {
         "name" : userName,
-        "synth" : true,
-        "synthSetting" : "Sampler({urls: {C4: '/C4.wav'}})",
+        "synth" : processedURL,
+        "synthSetting" : "Sampler(this.buffer)",
         "controls" : [
             {
                 "name" : "pitch"
