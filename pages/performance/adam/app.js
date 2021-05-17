@@ -124,10 +124,11 @@ function keyPressed() {
             noteNumber = 8;
             break;
       }
-      let note1 = mapNote(noteNumber, scale);
-      let note2 = mapNote(noteNumber + 4, scale);
-      let note3 = mapNote(noteNumber + 8, scale);
-      note = '"[' + note1 + ', ' + note2 + ', ' + note3 + ']"'
+      let note1 = "'" + mapNote(noteNumber, scale) + "'";
+      let note2 = "'" + mapNote(noteNumber + 4, scale) + "'";
+      let note3 = "'" + mapNote(noteNumber + 8, scale) + "'";
+      note = [note1, note2, note3];
+      note = "'" + note + "'";
     //   note = [
     //     mapNote(noteNumber, scale),
     //     mapNote(noteNumber + 4, scale),
