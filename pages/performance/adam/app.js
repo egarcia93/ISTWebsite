@@ -9,14 +9,14 @@ let userName;
 
 //Send Performer Settings to Audience on Initial Connection
 function sendPresence() {
-    let splitURL = window.location.href.split('performer/');
-    let processedURL = "'" + splitURL[0] + "assets/C4.wav'";
-    console.log(processedURL);
+    // let splitURL = window.location.href.split('performer/');
+    // let processedURL = "'" + splitURL[0] + "assets/C4.wav'";
+    // console.log(processedURL);
     console.log("sending connection to audience");
     let data = {
         "name" : userName,
-        "synth" : processedURL,
-        "synthSetting" : "Sampler(this.buffer)",
+        "synth" : true,
+        "synthSetting" : "Sampler({urls: {C4: 'C4.wav'},baseUrl: 'https://ist-webpage.herokuapp.com/performance/audience/',onload: () => {console.log('loaded');}})",
         "controls" : [
             {
                 "name" : "pitch"
