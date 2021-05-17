@@ -1,7 +1,7 @@
-// document.querySelector("button")?.addEventListener("click", async () => {
-//     await Tone.start();
-//     console.log("audio is ready");
-// });
+document.querySelector("button")?.addEventListener("click", async () => {
+    await Tone.start();
+    console.log("audio is ready");
+});
   
 let ready = false;
   
