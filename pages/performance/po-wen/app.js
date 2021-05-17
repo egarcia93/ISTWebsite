@@ -32,8 +32,10 @@ function sendPresence() {
 }
 
 let ready = false;
+let scale;
 
 function setup() {
+    scale = Tonal.Scale.get("A1 minor").notes;
     getUsername();
     sendPresence();
     ready = true;
@@ -78,21 +80,56 @@ window.addEventListener('load', () => {
 
 function keyPressed() {
     if (ready) {
-        let note;
-      // let noteNumber = floor(map(mouseX, 0, width, -7, 7));
-      //Q Pressed
-      if (keyCode === 81) {
-        note = "'C2'";
-      }
-      //W Pressed
-      if (keyCode === 87) {
-        note = "'Ab1'";
-      }
-      let value = {
-        "pitch" : note
+          noteNumber = 0;
+          switch (key) {
+              case "s":
+              noteNumber = 0;
+              break;
+              case "q":
+              noteNumber = 1;
+              break;
+              case "w":
+              noteNumber = 2;
+              break;
+              case "e":
+              noteNumber = 3;
+              break;
+              case "a":
+              noteNumber = 4;
+              break;
+              case "d":
+              noteNumber = 5;
+              break;
+              case "z":
+              noteNumber = 6;
+              break;
+              case "x":
+              noteNumber = 7;
+              break;
+              case "c":
+              noteNumber = 8;
+              break;
         }
-        sendData(value);
-    }
+        let note = mapNote(noteNumber, scale);
+        note = '"' + note + '"';
+        let value = {
+          "pitch" : note
+          }
+          sendData(value);
+      }
+}
+
+function mapNote(noteNumber, scale) {
+    let numNotes = scale.length;
+    let i = modulo(noteNumber, numNotes);
+    let note = scale[i];
+    let octaveTranspose = floor(noteNumber / numNotes);
+    let interval = Tonal.Interval.fromSemitones(octaveTranspose * 12);
+    return Tonal.Note.transpose(note, interval);
+}
+
+function modulo(n, m) {
+    return ((n % m) + m) % m;
 }
 
 //Send Data From DOM Event Listeners

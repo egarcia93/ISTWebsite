@@ -12,13 +12,17 @@
 <body>
     <h1 id="title"></h1>
     <br>
+    <div id="buttonDisplay">
+        <button id="button1">Start</button>
+        <button id="button2">Stop</button>
+    </div>
     <div id="slider1Display">
-        <input type="range" min="-60" max="0" value="-9" class="slider" id="slider1" name="volume">
+        <input type="range" min="-60" max="0" value="-45" class="slider" id="slider1" name="volume">
         <label for="volume">Volume</label>
     </div>
     <div id="slider2Display">
-        <input type="range" min="0" max="5" value="3" step="1" class="slider" id="slider2" name="duration">
-        <label for="duration">Duration</label>
+        <input type="range" min="0" max="1" value="0.8" step="0.1" class="slider" id="slider2" name="distortion">
+        <label for="distortion">Distortion</label>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="app.js"></script>

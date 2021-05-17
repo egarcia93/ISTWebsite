@@ -6,6 +6,7 @@ let performerSocket = io('/performer');
 
 //Declare Globals
 let userName;
+let loopSoundEnabled = false;
 
 let myImage;
 function preload() {
@@ -18,19 +19,26 @@ function sendPresence() {
     let data = {
         "name" : userName,
         "synth" : true,
-        "synthSetting" : "AMSynth({harmonicity: 1 / 2,detune: 0,oscillator: {type: 'sine'},envelope: {attack: 0.01,decay: 0.01,sustain: 1,release: 0.5},modulation: {type: 'square'},modulationEnvelope: {attack: 0.05,decay: 0,sustain: 1,release: 0.5}})",
+        "synthSetting" : "MembraneSynth({harmonicity: 1 / 2,detune: 0,oscillator: {type: 'square'},envelope: {attack: 0.01,decay: 0.01,sustain: 0.5,release: 0.5},modulation: {type: 'square'},modulationEnvelope: {attack: 0.05,decay: 0,sustain: 1,release: 0.5}})",
         "controls" : [
             {
                 "name" : "pitch"
             },
             {
                 "name" : "volume",
-                "startVal" : 3
+                "startVal" : -45
             },
             {
-                "name" : "duration",
-                "startVal" : "4n"
+                "name" : "distortion",
+                "startVal" : 0.8
+            },
+            {
+                "name" : "chorus",
+                "frequency" : 20,
+                "delayTime" : 2.5,
+                "depth" : 0.5
             }
+
         ]
     };
     performerSocket.emit('sendPresence', data);
@@ -46,6 +54,19 @@ function draw() {
     } else {
         mouseOnCanvas = false;
     }
+    if (frameCount % 20 === 0 && loopSoundEnabled === true) {
+        c = myImage.get(mouseX, mouseY);
+        G = c[1];
+        // R,G,B value
+        let noteNumber = G % 6;
+        let note = mapNote(noteNumber, scale);
+        note = "'" + note + "'";
+        console.log(note);
+        let value = {
+            "pitch" : note
+        }
+        sendData(value);
+    }
 }
 
 function setup() {
@@ -60,9 +81,7 @@ function setup() {
 
 function mousePressed() {
     if (ready && mouseOnCanvas) { 
-        let R = myImage.get(mouseX, mouseY);
-        console.log(R);
-        let noteNumber = R[0] % 16;
+        let noteNumber = 3;
         let note = mapNote(noteNumber, scale);
         note = "'" + note + "'";
         console.log(note);
@@ -82,10 +101,21 @@ function getUsername() {
     document.getElementById('title').innerHTML = "Welcome " + userName;
 }
 
-let durations = ["32n", "16n", "8n", "4n", "2n", "1n"]
-
 window.addEventListener('load', () => {
     document.getElementById('title').innerHTML = "Welcome " + userName;
+    document.getElementById('button2').disabled = true;
+
+    document.getElementById('button1').addEventListener('click', () => {
+        loopSoundEnabled = true;
+        document.getElementById('button1').disabled = true;
+        document.getElementById('button2').disabled = false;
+    });
+
+    document.getElementById('button2').addEventListener('click', () => {
+        loopSoundEnabled = false;
+        document.getElementById('button1').disabled = false;
+        document.getElementById('button2').disabled = true;
+    });
 
     //Volume Slider Event Listener
     document.getElementById('slider1').addEventListener('mouseup', () => {
@@ -100,10 +130,9 @@ window.addEventListener('load', () => {
     });
     document.getElementById('slider2').addEventListener('mouseup', () => {
         console.log('slider adjusted');
-        let input = document.getElementById('slider2').value;
-        let inputValue = "'" + durations[input] + "'";
+        let inputValue = document.getElementById('slider2').value;
         let value = {
-            "duration" : inputValue
+            "distortion" : inputValue
         }
         // console.log(value);
         sendData(value);

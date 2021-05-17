@@ -28,8 +28,6 @@ window.addEventListener('load', () => {
                     window.location.href = "https://ist-webpage.herokuapp.com/performance/performer/" + username;
                 }
             })
-           
         }
-        
     });
 });

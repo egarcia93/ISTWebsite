@@ -14,6 +14,8 @@ class Performer {
         this.meter;
         this.waveform;
         this.buffer;
+        this.chorus;
+        this.pingPong
     }
 
     //GO THROUGH SETTINGS, CREATE INSTRUMENT, AND IDENTIFY WHAT ASPECTS OF THE INSTRUMENT WILL BE CONTROLLED
@@ -22,11 +24,13 @@ class Performer {
             this.meter = new Tone.Meter().toDestination();
             this.volume = new Tone.Volume(0).connect(this.meter);
             this.feedbackDelay = new Tone.FeedbackDelay().connect(this.volume);
-            this.distortion = new Tone.Distortion().connect(this.feedbackDelay);
+            this.chorus = new Tone.Chorus().connect(this.feedbackDelay);
+            this.distortion = new Tone.Distortion().connect(this.chorus);
             this.waveform = new Tone.Waveform().connect(this.distortion);
             let synthType = "new Tone." + this.synthSetting + ".connect(this.waveform)";
             this.instrument = eval(synthType);
             console.log(this.instrument);
+            console.log(this.chorus);
 
             // //LOOP THROUGH data.controls TO GET PARTS OF SYNTH TO CONTROL
             for (i = 0; i < this.controls.length; i++) {
@@ -57,11 +61,18 @@ class Performer {
                 //ENVELOPE FOR THOSE USING SAMPLER
                 if (this.controls[i].name === "envelope") {
                     //ADD this.controls[i].target and set initial value
-                    this.controls[i].target = "this.instrument.envelope";
+                    // this.controls[i].target = "this.instrument.envelope";
                     this.instrument.attack = this.controls[i].attack;
                     this.instrument.decay = this.controls[i].decay;
                     this.instrument.sustain = this.controls[i].sustain;
                     this.instrument.release = this.controls[i].release;
+                }
+                if (this.controls[i].name === "chorus") {
+                    console.log(this.chorus.delayTime);
+                    this.chorus.frequency.value = this.controls[i].frequency;
+                    this.chorus.delayTime = this.controls[i].delayTime;
+                    this.chorus.depth = this.controls[i].depth;
+                    console.log(this.chorus);
                 }
                 if (this.controls[i].name === "distortion") {
                     //ADD this.controls[i].target and set initial value

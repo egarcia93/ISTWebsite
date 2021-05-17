@@ -1,15 +1,9 @@
-document.querySelector("button")?.addEventListener("click", async () => {
-    await Tone.start();
-    console.log("audio is ready");
-    // initializeAudio();
-});
+// document.querySelector("button")?.addEventListener("click", async () => {
+//     await Tone.start();
+//     console.log("audio is ready");
+// });
   
 let ready = false;
-  
-//   let meters; // variables for sound production
-//   let waveforms;
-//   let synths;
-//   let vols;
   
 let numBars = 15; // variables for sound viz
 let samples = 12;
@@ -38,11 +32,6 @@ function setup() {
     textSize(16);
     fill(0);
   
-    // vols = [];
-    // synths = [];
-    // waveforms = [];
-    // meters = [];
-  
     colors = [
       color(0, 0, 0),
       color(170, 50, 50),
@@ -62,60 +51,6 @@ function draw() {
     drawTitle();
     drawStages();
 }
-  
-// function initializeAudio() {
-//     //create a synth and connect it to the main output (your speakers)
-//     for (i = 0; i < numInstruments; i++) {
-//       let vol = new Tone.Volume(-12).toDestination();
-//       let synth = new Tone.Synth();
-//       synth.connect(vol);
-//       let meter = new Tone.Meter();
-//       vol.connect(meter);
-//       let waveform = new Tone.Waveform();
-//       synth.connect(waveform);
-//       synth.triggerAttackRelease("C4", 0.5);
-//       synth.envelope = {
-//         attack: 0.1,
-//         decay: 0,
-//         sustain: 1,
-//         release: 0.2,
-//       };
-//     //   synths.push(synth);
-//     //   meters.push(meter);
-//     //   vols.push(vol);
-//     //   waveforms.push(waveform);
-//     }
-  
-//     ready = true;
-// }
-  
-// function keyPressed() {
-//     if (ready) {
-//       switch (key) {
-//         case "a":
-//           synths[0].triggerAttackRelease("G4", 1);
-//           break;
-//         case "s":
-//           synths[1].triggerAttackRelease("G4", 1);
-//           break;
-//         case "d":
-//           synths[2].triggerAttackRelease("G4", 1);
-//           break;
-//         case "f":
-//           synths[3].triggerAttackRelease("G4", 1);
-//           break;
-//         case "g":
-//           synths[4].triggerAttackRelease("G4", 1);
-//           break;
-//         case "h":
-//           synths[5].triggerAttackRelease("G4", 1);
-//           break;
-//         case "j":
-//           synths[6].triggerAttackRelease("G4", 1);
-//           break;
-//       }
-//     }
-//   }
   
 function drawMeter(meter, x, y, w, l, numBars, c) {
     //Draw meter
@@ -294,7 +229,7 @@ function setDimensions() {
 function drawTitle(){
     fill(0);
     noStroke();
-    // textFont(audioFont);
+    textFont(audioFont);
     textAlign(CENTER);
     textSize(top_margin / 2);
     text("The International Soundboard of Tourism", width / 2, top_margin / 2);
