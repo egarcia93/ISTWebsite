@@ -29,8 +29,8 @@ let logo;
 let colors;
   
 function preload() {
-    // logo = loadImage("assets/IST_logo.jpeg");
-    // audioFont = loadFont("assets/Audiowide-Regular.ttf");
+    logo = loadImage("IST_logo.jpeg");
+    audioFont = loadFont("Audiowide-Regular.ttf");
 }
   
 function setup() {
@@ -198,7 +198,7 @@ function createStages() {
     setDimensions();
   
     let b = select("button");
-    // b.style("font-family", audioFont);
+    b.style("font-family", audioFont);
     b.position(width - right_margin - b.width, top_margin - b.height - 10);
   
     playerStages = [];
@@ -309,7 +309,7 @@ function drawStages() {
     playerStages.forEach((stage) => stage.display());
   
     //draw logo on first stage
-    // image(logo, logoStage.pos.x, logoStage.pos.y, logoStage.w, logoStage.h);
+    image(logo, logoStage.pos.x, logoStage.pos.y, logoStage.w, logoStage.h);
   
     if (ready) {
       for (let i = (activePerformers.length - 1); i >= 0; i--) {
