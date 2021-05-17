@@ -133,7 +133,6 @@ function createStages() {
     setDimensions();
   
     let b = select("button");
-    b.style("font-family", audioFont);
     b.position(width - right_margin - b.width, top_margin - b.height - 10);
   
     playerStages = [];
