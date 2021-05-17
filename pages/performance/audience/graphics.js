@@ -29,8 +29,8 @@ let logo;
 let colors;
   
 function preload() {
-    logo = loadImage("IST_logo.jpeg");
-    audioFont = loadFont("Audiowide-Regular.ttf");
+    logo = loadImage("assets/IST_logo.jpeg");
+    audioFont = loadFont("assets/Audiowide-Regular.ttf");
 }
   
 function setup() {
