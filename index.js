@@ -15,7 +15,8 @@ mongoose.connect(process.env.DB_CONNECT,
 
 let http = require('http');
 let server = http.createServer(app);
-let port = process.env.port || 3000;
+
+let PORT = process.env.PORT || 3000;
 let info = require('./routes/info');
 let performance = require('./routes/performance');
 app.use(express.json());
@@ -83,6 +84,6 @@ io.sockets.on('connection', (socket) => {
     console.log("new socket connection @ " + socket.id);
 });
 
-server.listen(port, () => {
+server.listen(PORT, () => {
     console.log('App listening at http://localhost:3000');
 });
