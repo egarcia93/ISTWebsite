@@ -127,7 +127,9 @@ function keyPressed() {
       let note1 = "'" + mapNote(noteNumber, scale) + "'";
       let note2 = "'" + mapNote(noteNumber + 4, scale) + "'";
       let note3 = "'" + mapNote(noteNumber + 8, scale) + "'";
-      note = [note1, note2, note3];
+      note.push(note1);
+      note.push(note2);
+      note.push(note3);
       note = "'" + note + "'";
     //   note = [
     //     mapNote(noteNumber, scale),
