@@ -22,17 +22,35 @@ router
     .use('/login', express.static('./pages/performance/login'));
 
 router
-    .use('/performer/:userid', express.static('./pages/performance/performer-userid'));
+    .use('/performer/michael', express.static('./pages/performance/michael'));
+
+router
+    .use('/performer/adam', express.static('./pages/performance/adam'));
+    
+router
+    .use('/performer/po-wen', express.static('./pages/performance/po-wen'));
+
+router
+    .use('/performer/yiru', express.static('./pages/performance/yiru'));
+
+router
+    .use('/performer/enrique', express.static('./pages/performance/enrique'));
 
 router
     .use('/audience', express.static('./pages/performance/audience'));
 
-router
-    .use('/audience/:userid', express.static('./pages/performance/audience-userid'));
+// router
+//     .use('/audience/C4.wav', express.static('C4.wav'));
+
+// router
+//     .use('/audience/C4.wav', express.static('./pages/performance/audience/C4.wav'))
+
+// router
+//     .use('/audience/:userid', express.static('./pages/performance/audience-userid'));
 
 
-    //Login
-    router.post('/login',async(req,res)=>{
+//Login
+router.post('/login',async(req,res)=>{
     
         const{error} = loginValidation(req.body);
         if(error) return res.status(400).send(error.details[0].message);
