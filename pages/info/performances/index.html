@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIME-landing</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@100;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header" class = "flex-container">
+        <!-- Po-Wen: reference from https://www.w3schools.com/howto/howto_css_responsive_header.asp -->
+        <!-- <a href="index-landing.html" class="logo">CompanyLogo</a> -->
+        <div id="nav-bar" >
+            <a class="nav-bar-item" href="/">HOME</a>
+            <a class="nav-bar-item" href="/info/about">ABOUT</a>
+            <a class="nav-bar-item" href="/info/performances">PERFORMANCES</a>
+            <a class="nav-bar-item" href="/info/artists">ARTISTS</a>
+        </div>
+    </div>
+
+
+    <div class = "main-container">
+        <h1 class = "center">Past Performances</h1>
+
+        <div class= "performances-container">
+            <div class="performance-title">
+                <h2>ITP/IMA Spring Show 2021</h2>
+                <p class = "performance-description">We peformed in a virtual space called YORB for the NYU ITP/IMA/Low Res Spring Show 2021</p>
+            </div>
+
+            <section class="performance-video">
+                <iframe 
+                class="project_video"
+                src="https://player.vimeo.com/video/562426316" 
+                width="900" 
+                height="600" 
+                frameborder="0" 
+                allow="autoplay; fullscreen" 
+                allowfullscreen></iframe> 
+        
+            </section>
+
+        </div>
+    </div>
+
+    <div class="header" class = "flex-container">
+        <!-- Po-Wen: reference from https://www.w3schools.com/howto/howto_css_responsive_header.asp -->
+        <!-- <a href="index-landing.html" class="logo">CompanyLogo</a> -->
+        <div id="nav-bar" >
+            <a class="nav-bar-item" href="/performance">JOIN A LIVE PERFORMANCE</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.11.0/underscore-min.js"></script>
+
+</body>
+
+</html>

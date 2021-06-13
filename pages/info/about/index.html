@@ -1,15 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>NIME-landing</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@100;400;500&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1>ABOUT IST</h1>
-    <button id="button1">Bios</button>
-    <button id="button2">Video</button>
+    <div class="header" class = "flex-container">
+        <!-- Po-Wen: reference from https://www.w3schools.com/howto/howto_css_responsive_header.asp -->
+        <!-- <a href="index-landing.html" class="logo">CompanyLogo</a> -->
+        <div id="nav-bar" >
+            <a class="nav-bar-item" href="/">HOME</a>
+            <a class="nav-bar-item" href="/info/about">ABOUT</a>
+            <a class="nav-bar-item" href="/info/performances">PERFORMANCES</a>
+            <a class="nav-bar-item" href="/info/artists">ARTISTS</a>
+        </div>
+    </div>
+
+    <div class = "main-container">
+        <div class = "center">
+            <h1>About Us</h1>
+            <img src="/info/assets/city-photo-zoom-01.png">
+        </div>
+        
+        <div>
+            <div>
+                <h2>The Origins of The International Soundboard of Tourism</h2>
+                <p> We are a collective of artists from around the world enrolled in NYU’s Global Low Residency program in Interactive Media Arts and, in this project, we are collaborating to learn to play music together in an online environment.  We have been learning remotely since last summer as part of the inaugural cohort of the Low-Res IMA program, which is rooted in a maker culture of “learning by doing”, creative expression, and critical engagement. Essential to our time together has been developing our own individual artistic forms of expression, as well as sharing experiences grounded in our own local contexts and creative backgrounds.:</p>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <h2>What we do</h2>
+                <p>For this project we are developing an innovative musical interface inspired by the spirit of our program. Each musician will build their own ‘instrument,’ gathering and representing distinctive features of their locales according to their personal style and orientation toward critical engagement. Through creative coding, data analysis, and both audio and visual design, all data captured from our cities will be transformed into unique digital outputs. These sonfications of our respective cities will be uploaded to an online musical interface, allowing us to perform, compose, and remix while learning to play and playing to learn...together.</p>
+                <p>Together, we represent four countries, six different cities, and eight artistic practices. We came together through our program and, due to circumstances surrounding the COVID-19 pandemic, we have not had the chance to meet in person. Consequently, we have sought ways to strengthen ties and build community remotely. The design of this musical interface emerged from such an attempt, as we saw an opportunity to explore cities we know very little about and would otherwise never experience through the eyes and ears of a local while deepening our connections to one another as we experiment and learn to perform as an ensemble.  We hope that this project might serve as a model and inspiration for future international jam sessions.</p>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <h2>Generously supported by:</h2>
+                <p>Special thanks to the faculty, residents and 2021 cohort of the Low-Res IMA Program and the NYU Creative Research Grant for their tremendous support.</p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
     <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.11.0/underscore-min.js"></script>
+
 </body>
+
 </html>

@@ -22,7 +22,7 @@ let performance = require('./routes/performance');
 app.use(express.json());
 app.use('/info', info);
 app.use('/performance', performance);
-app.use('/', express.static('./pages/root'));
+app.use('/', express.static('./pages/info/home'));
 let io = require('socket.io')(server);
 
 

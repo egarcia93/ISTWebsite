@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Root</title>
+    <title>NIME-landing</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@100;400;500&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1>WELCOME TO THE PERFORMANCE</h1>
-    <button id="button1">Performer?</button>
-    <button id="button2">Guest?</button>
+    <div class="header" class = "flex-container">
+        <!-- Po-Wen: reference from https://www.w3schools.com/howto/howto_css_responsive_header.asp -->
+        <!-- <a href="index-landing.html" class="logo">CompanyLogo</a> -->
+        <div id="nav-bar" >
+            <a class="nav-bar-item" href="/">HOME</a>
+            <a class="nav-bar-item" href="/info/about">ABOUT</a>
+            <a class="nav-bar-item" href="/info/performances">PERFORMANCES</a>
+            <a class="nav-bar-item" href="/info/artists">ARTISTS</a>
+        </div>
+    </div>
+
+    <div class = "main-container">
+        <p></p>
+       
+        <div class="image-container">
+            <img src="/info/assets/logo_option3.jpeg" alt="background" style="width:50%;">
+        </div>
+
+        <h1 class = "center">Join a Live Performance As:</h1>
+
+
+    </div>
+
+    <div class="header" class = "flex-container">
+        <!-- Po-Wen: reference from https://www.w3schools.com/howto/howto_css_responsive_header.asp -->
+        <!-- <a href="index-landing.html" class="logo">CompanyLogo</a> -->
+        <div id="nav-bar" >
+            <a class="nav-bar-item" href="/performance/audience">AN AUDIENCE MEMBER</a>
+            <a class="nav-bar-item" href="/performance/login">A PERFORMER</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
     <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.11.0/underscore-min.js"></script>
+
 </body>
+
+
+
 </html>
