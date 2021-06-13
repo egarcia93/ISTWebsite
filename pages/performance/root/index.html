@@ -38,12 +38,13 @@
         <!-- Po-Wen: reference from https://www.w3schools.com/howto/howto_css_responsive_header.asp -->
         <!-- <a href="index-landing.html" class="logo">CompanyLogo</a> -->
         <div id="nav-bar" >
-            <a class="nav-bar-item" href="/performance/audience">AN AUDIENCE MEMBER</a>
-            <a class="nav-bar-item" href="/performance/login">A PERFORMER</a>
+            <a id="audienceNav" class="nav-bar-item">AN AUDIENCE MEMBER</a>
+            <a id="performerNav" class="nav-bar-item" href="/performance/login">A PERFORMER</a>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/underscore@1.11.0/underscore-min.js"></script>
 
